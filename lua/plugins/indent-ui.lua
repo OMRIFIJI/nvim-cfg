@@ -1,5 +1,5 @@
 return {
-    { -- Ident guides
+    {  -- Ident guides
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},

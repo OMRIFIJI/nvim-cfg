@@ -15,11 +15,19 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = { "folke/neodev.nvim" },
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
             -- Lua
-            lspconfig.lua_ls.setup({ capabilities = capabilities })
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+                settings = {
+                    diagnostics = {
+                        globals = { "vim" }
+                    }
+                }
+            })
 
             -- css, html, js
             lspconfig.cssls.setup({ capabilities = capabilities })
@@ -28,11 +36,16 @@ return {
 
             -- java
             lspconfig.jdtls.setup({ capabilities = capabilities })
-
+            -- docker
+            lspconfig.dockerls.setup({ capabilities = capabilities })
             -- Go, C, json
             lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
-            lspconfig.clangd.setup({ capabilities = capabilities })
+            -- lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.jsonls.setup({ capabilities = capabilities })
+            -- Cmake
+            lspconfig.cmake.setup({
+                capabilities = capabilities,
+            })
 
             -- SQL **TODO:setup properly**
             lspconfig.sqls.setup({ capabilities = capabilities })
@@ -53,8 +66,5 @@ return {
 
             vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, {})
         end,
-        diagnostics = {
-            globals = { 'vim' }
         },
-    },
 }
