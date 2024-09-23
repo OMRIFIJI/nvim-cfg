@@ -32,7 +32,7 @@ return {
             -- css, html, js
             lspconfig.cssls.setup({ capabilities = capabilities })
             lspconfig.html.setup({ capabilities = capabilities })
-            lspconfig.tsserver.setup({ capabilities = capabilities })
+            lspconfig.ts_ls.setup({ capabilities = capabilities })
 
             -- java
             lspconfig.jdtls.setup({ capabilities = capabilities })
@@ -42,6 +42,8 @@ return {
             lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
             -- lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.jsonls.setup({ capabilities = capabilities })
+            -- Rust!!!
+            lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- Cmake
             lspconfig.cmake.setup({
                 capabilities = capabilities,
