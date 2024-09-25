@@ -38,14 +38,14 @@ return {
             lspconfig.jdtls.setup({ capabilities = capabilities })
             -- docker
             lspconfig.dockerls.setup({ capabilities = capabilities })
-            -- Go, C, json
+            -- Go, C++, json
             lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
-            -- lspconfig.clangd.setup({ capabilities = capabilities })
+            lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.jsonls.setup({ capabilities = capabilities })
             -- Rust!!!
             lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             -- Cmake
-            lspconfig.cmake.setup({
+            lspconfig.neocmake.setup({
                 capabilities = capabilities,
             })
 

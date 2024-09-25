@@ -12,3 +12,7 @@ map('n', '<leader>t4', function ()
     vim.o.shiftwidth = 4
 end, {})
 
+map('n', '<leader>df', function ()
+    vim.diagnostic.open_float()
+end, {})
+
