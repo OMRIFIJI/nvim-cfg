@@ -16,3 +16,5 @@ map('n', '<leader>df', function ()
     vim.diagnostic.open_float()
 end, {})
 
+map('n', '<leader>ut', vim.cmd.UndotreeToggle)
+map('n', '<leader>bfa', [[:s/(/(\r/ | s/, */,\r/g | s/)/\r)/<CR>]])
