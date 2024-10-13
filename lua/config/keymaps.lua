@@ -12,9 +12,6 @@ map('n', '<leader>t4', function ()
     vim.o.shiftwidth = 4
 end, {})
 
-map('n', '<leader>df', function ()
-    vim.diagnostic.open_float()
-end, {})
 
 map('n', '<leader>ut', vim.cmd.UndotreeToggle)
 map('n', '<leader>bfa', [[:s/(/(\r/ | s/, */,\r/g | s/)/\r)/<CR>]])

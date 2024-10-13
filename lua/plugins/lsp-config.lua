@@ -66,7 +66,48 @@ return {
                 }
             }
 
-            vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, {})
+			lspconfig.dartls.setup({
+				capabilities = capabilities,
+				cmd = {
+					"dart",
+					"language-server",
+					"--protocol=lsp",
+				},
+				filetypes = { "dart" },
+				init_options = {
+					onlyAnalyzeProjectsWithOpenFiles = false,
+					suggestFromUnimportedLibraries = true,
+					closingLabels = true,
+					outline = false,
+					flutterOutline = false,
+				},
+				settings = {
+					dart = {
+						updateImportsOnRename = true,
+						completeFunctionCalls = true,
+						showTodos = true,
+					},
+				},
+			})
+
+            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+            vim.keymap.set("n", "<leader>fd", vim.diagnostic.open_float)
+            vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					-- Buffer local mappings.
+					-- See `:help vim.lsp.*` for documentation on any of the below functions
+					local opts = { buffer = ev.buf }
+
+					vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+					vim.keymap.set("n", "<leader>H", vim.lsp.buf.hover, opts)
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+					vim.keymap.set("i", "<leader>he", vim.lsp.buf.signature_help, opts)
+				end,
+			})
         end,
         },
 }
