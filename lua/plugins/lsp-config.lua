@@ -105,7 +105,7 @@ return {
 					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
 					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-					vim.keymap.set("i", "<leader>he", vim.lsp.buf.signature_help, opts)
+					vim.keymap.set("n", "<leader>he", vim.lsp.buf.signature_help, opts)
 				end,
 			})
         end,
