@@ -19,7 +19,7 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            -- Lua
+
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
                 settings = {
@@ -29,31 +29,29 @@ return {
                 }
             })
 
-            -- css, html, js
             lspconfig.cssls.setup({ capabilities = capabilities })
             lspconfig.html.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
 
-            -- java
             lspconfig.jdtls.setup({ capabilities = capabilities })
-            -- docker
             lspconfig.dockerls.setup({ capabilities = capabilities })
-            -- Go, C++, json
-            lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
+            lspconfig.gopls.setup({ capabilities = capabilities })
             lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.jsonls.setup({ capabilities = capabilities })
-            -- Rust!!!
+
             lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-            -- Cmake
+
             lspconfig.neocmake.setup({
                 capabilities = capabilities,
             })
 
             -- SQL **TODO:setup properly**
             lspconfig.sqls.setup({ capabilities = capabilities })
-            -- TEX
+
+            lspconfig.nginx_language_server.setup({capabilities = capabilities})
+
             lspconfig.texlab.setup({ capabilities = capabilities })
-            -- python
+
             lspconfig.pylsp.setup {
                 settings = {
                     pylsp = {
