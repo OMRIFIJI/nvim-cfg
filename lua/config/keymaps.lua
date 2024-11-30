@@ -12,6 +12,5 @@ map('n', '<leader>t4', function ()
     vim.o.shiftwidth = 4
 end, {})
 
-
-map('n', '<leader>ut', vim.cmd.UndotreeToggle)
+-- (a, b, c) -> (\na,\nb,\nc\n)
 map('n', '<leader>bfa', [[:s/(/(\r/ | s/, */,\r/g | s/)/\r)/<CR>]])
