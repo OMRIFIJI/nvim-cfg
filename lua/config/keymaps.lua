@@ -14,3 +14,5 @@ end, {})
 
 -- (a, b, c) -> (\na,\nb,\nc\n)
 map('n', '<leader>bfa', [[:s/(/(\r/ | s/, */,\r/g | s/)/\r)/<CR>]])
+
+map('n', '<C-b>', ':buffers<CR>:buffer')
