@@ -50,7 +50,7 @@ return {
       -- SQL **TODO:setup properly**
       lspconfig.sqls.setup({ capabilities = capabilities })
 
-      lspconfig.nginx_language_server.setup({ capabilities = capabilities })
+      -- lspconfig.nginx_language_server.setup({ capabilities = capabilities })
 
       lspconfig.texlab.setup({ capabilities = capabilities })
 
