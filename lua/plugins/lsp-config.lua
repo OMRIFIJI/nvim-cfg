@@ -15,7 +15,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "folke/neodev.nvim" },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
@@ -23,8 +22,10 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         settings = {
-          diagnostics = {
-            globals = { "vim" }
+            Lua = {
+            diagnostics = {
+              globals = { "vim" }
+            }
           }
         }
       })
@@ -49,8 +50,6 @@ return {
 
       -- SQL **TODO:setup properly**
       lspconfig.sqls.setup({ capabilities = capabilities })
-
-      -- lspconfig.nginx_language_server.setup({ capabilities = capabilities })
 
       lspconfig.texlab.setup({ capabilities = capabilities })
 
@@ -89,7 +88,6 @@ return {
           },
         },
       })
-
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
       vim.keymap.set("n", "<leader>fd", vim.diagnostic.open_float)

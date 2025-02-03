@@ -1,8 +1,9 @@
-vim.filetype.add({
-  pattern = { [".*/hypr/.*.conf"] = "hyprlang" },
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "md", "tex" },
+  callback = function()
+	vim.cmd(":set spell spelllang=ru,en_us")
+  end,
 })
-
-vim.cmd(":set spell spelllang=ru,en_us")
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "dart", "lua" },

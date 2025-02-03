@@ -15,4 +15,7 @@ end, {})
 -- (a, b, c) -> (\na,\nb,\nc\n)
 map('n', '<leader>bfa', [[:s/(/(\r/ | s/, */,\r/g | s/)/\r)/<CR>]])
 
-map('n', '<C-b>', ':buffers<CR>:buffer')
+map('n', '<leader>bb', ':buffers<CR>:buffer')
+map('n', '<leader>bd', ':bd<CR>')
+map('n', '<leader>bn', ':bnext<CR>')
+map('n', '<leader>bp', ':bprev<CR>')

@@ -1,5 +1,5 @@
 return {
-    "phuocn0302/pywal.nvim",
+    "AlphaTechnolog/pywal.nvim",
     name = "pywal",
     priority = 1000,
 

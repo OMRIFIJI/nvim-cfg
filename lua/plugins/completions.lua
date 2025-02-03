@@ -5,13 +5,6 @@ return {
         "hrsh7th/cmp-path",
     },
     {
-        "L3MON4D3/LuaSnip",
-        dependencies = {
-            "saadparwaiz1/cmp_luasnip",
-            "rafamadriz/friendly-snippets",
-        },
-    },
-    {
         "echasnovski/mini.pairs",
         version = false,
         config = function()
@@ -24,6 +17,14 @@ return {
         config = function()
             require("mini.comment").setup()
         end,
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+        build = "make install_jsregexp"
     },
     {
         "hrsh7th/nvim-cmp",
